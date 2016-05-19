@@ -57,7 +57,6 @@ class songciSpider(scrapy.Spider):
             yield scrapy.Request(url, callback=self.poemPageParse)
                 
     def indexPageParse(self, page):
-        print "\t------Now Parse IndexPage------"
         response = html.fromstring(unicode(page, 'utf-8'))
         aSets = HTMLParser.HTMLParser().unescape(response.xpath('//div[@class="main3"]//span[descendant::a[contains(@href, "view")]]'))
         
